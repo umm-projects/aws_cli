@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using UnityModule.Settings;
+// ReSharper disable UseStringInterpolation
 
 namespace UnityModule.Command {
 
@@ -16,6 +17,12 @@ namespace UnityModule.Command {
 
         public static class S3 {
 
+            public enum AccessControlListType {
+                Private,
+                PublicRead,
+                PublicReadWrite,
+            }
+
             private enum SubCommandType {
                 Copy,
             }
@@ -24,14 +31,21 @@ namespace UnityModule.Command {
                 { SubCommandType.Copy, "cp" },
             };
 
-            public static string Copy(string path1, string path2) {
+            private static readonly Dictionary<AccessControlListType, string> ACL_MAP = new Dictionary<AccessControlListType, string>() {
+                { AccessControlListType.Private        , "private" },
+                { AccessControlListType.PublicRead     , "public-read" },
+                { AccessControlListType.PublicReadWrite, "public-read-write" },
+            };
+
+            public static string Copy(string path1, string path2, AccessControlListType accessControlListType = AccessControlListType.Private) {
                 return Runner<string>.Run(
                     EnvironmentSetting.Instance.Path.CommandAws,
                     COMMAND_MAP[CommandType.S3],
                     new List<string>() {
                         SUB_COMMAND_MAP[SubCommandType.Copy],
                         path1,
-                        path2
+                        path2,
+                        string.Format("--acl {0}", ACL_MAP[accessControlListType])
                     }
                 );
             }
