@@ -39,7 +39,7 @@ namespace UnityModule.Command {
 
             public static string Copy(string path1, string path2, AccessControlListType accessControlListType = AccessControlListType.Private) {
                 return Runner<string>.Run(
-                    EnvironmentSetting.Instance.Path.CommandAws,
+                    AWSSetting.GetOrDefault().PathToCommand,
                     COMMAND_MAP[CommandType.S3],
                     new List<string>() {
                         SUB_COMMAND_MAP[SubCommandType.Copy],
