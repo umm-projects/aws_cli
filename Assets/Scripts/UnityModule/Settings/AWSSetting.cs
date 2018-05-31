@@ -18,27 +18,17 @@ namespace UnityModule.Settings
         /// <summary>
         /// aws コマンドのパスの実体
         /// </summary>
-        [SerializeField] private string pathToCommand;
+        [SerializeField] private string pathToCommand = (
+            !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(EnvironmentKeyCommandAWS))
+                ? Environment.GetEnvironmentVariable(EnvironmentKeyCommandAWS)
+                : DefaultCommandPathAWS
+        );
 
         /// <summary>
         /// aws コマンドのパス
         /// </summary>
-        public string PathToCommand
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(pathToCommand))
-                {
-                    pathToCommand = Environment.GetEnvironmentVariable(EnvironmentKeyCommandAWS);
-                }
+        public string PathToCommand => pathToCommand;
 
-                if (string.IsNullOrEmpty(pathToCommand))
-                {
-                    pathToCommand = DefaultCommandPathAWS;
-                }
-
-                return pathToCommand;
-            }
 #if UNITY_EDITOR
         [UnityEditor.MenuItem("Assets/Create/Settings/AWS Setting")]
         public static void CreateSettingAsset()
