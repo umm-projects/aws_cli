@@ -25,8 +25,8 @@
   ],
   "dependencies": {
     "@umm/command_runner": "umm-projects/command_runner#^1.0.0",
-    "@umm/setting_core": "umm-projects/setting_core#^1.0.0",
-    "@umm/scripts": "umm-projects/scripts#^1.0.0"
+    "@umm/scripts": "umm-projects/scripts#^1.0.0",
+    "@umm/setting_core": "umm-projects/setting_core#^1.0.0"
   },
   "devDependencies": {}
 }
