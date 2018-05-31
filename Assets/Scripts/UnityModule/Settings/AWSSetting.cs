@@ -39,6 +39,12 @@ namespace UnityModule.Settings
 
                 return pathToCommand;
             }
+#if UNITY_EDITOR
+        [UnityEditor.MenuItem("Assets/Create/Settings/AWS Setting")]
+        public static void CreateSettingAsset()
+        {
+            CreateAsset(true);
         }
+#endif
     }
 }
