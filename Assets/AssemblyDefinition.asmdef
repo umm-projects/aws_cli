@@ -1,0 +1,11 @@
+{
+  "name": "umm@aws_cli",
+  "references": [
+    "umm@command_runner",
+    "umm@setting_core"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false
+}
