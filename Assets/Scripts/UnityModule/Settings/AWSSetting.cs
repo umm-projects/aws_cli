@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityModule.Settings
 {
-    public class AWSSetting : Setting<AWSSetting>
+    public class AWSSetting : Setting<AWSSetting>, IEnvironmentSetting
     {
         /// <summary>
         /// デフォルトの aws コマンドパス
@@ -33,7 +33,7 @@ namespace UnityModule.Settings
         [UnityEditor.MenuItem("Assets/Create/Settings/AWS Setting")]
         public static void CreateSettingAsset()
         {
-            CreateAsset(true);
+            CreateAsset();
         }
 #endif
     }
