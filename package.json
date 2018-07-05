@@ -1,6 +1,6 @@
 {
   "name": "@umm/aws_cli",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "AWS CLI",
   "homepage": "https://github.com/umm-projects/aws_cli",
   "bugs": {
