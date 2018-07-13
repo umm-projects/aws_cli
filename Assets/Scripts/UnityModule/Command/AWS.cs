@@ -25,10 +25,12 @@ namespace UnityModule.Command {
 
             private enum SubCommandType {
                 Copy,
+                List,
             }
 
             private static readonly Dictionary<SubCommandType, string> SUB_COMMAND_MAP = new Dictionary<SubCommandType, string>() {
                 { SubCommandType.Copy, "cp" },
+                { SubCommandType.List, "ls" },
             };
 
             private static readonly Dictionary<AccessControlListType, string> ACL_MAP = new Dictionary<AccessControlListType, string>() {
@@ -46,6 +48,19 @@ namespace UnityModule.Command {
                         path1,
                         path2,
                         string.Format("--acl {0}", ACL_MAP[accessControlListType])
+                    }
+                );
+            }
+
+            public static string List(string path)
+            {
+                return Runner<string>.Run(
+                    AWSSetting.GetOrDefault().PathToCommand,
+                    COMMAND_MAP[CommandType.S3],
+                    new List<string>
+                    {
+                        SUB_COMMAND_MAP[SubCommandType.List],
+                        path
                     }
                 );
             }
