@@ -2,9 +2,9 @@
   "name": "@umm/aws_cli",
   "version": "2.2.0",
   "description": "AWS CLI",
-  "homepage": "https://github.com/umm-projects/aws_cli",
+  "homepage": "https://github.com/umm/aws_cli",
   "bugs": {
-    "url": "https://github.com/umm-projects/aws_cli/issues"
+    "url": "https://github.com/umm/aws_cli/issues"
   },
   "scripts": {
     "umm:init": "umm-init",
@@ -18,16 +18,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:umm-projects/aws_cli"
+    "url": "git@github.com:umm/aws_cli"
   },
   "files": [
     "Assets",
     "scripts"
   ],
   "dependencies": {
-    "@umm/command_runner": "umm-projects/command_runner#^1.0.0",
-    "@umm/scripts": "umm-projects/scripts#^1.0.0",
-    "@umm/setting_core": "umm-projects/setting_core#^2.0.0"
+    "@umm/command_runner": "umm/command_runner#^1.0.0",
+    "@umm/scripts": "umm/scripts#^1.0.0",
+    "@umm/setting_core": "umm/setting_core#^2.0.0"
   },
   "devDependencies": {}
 }
