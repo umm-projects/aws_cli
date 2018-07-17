@@ -11,7 +11,7 @@
 ## Install
 
 ```shell
-$ npm install github:umm-projects/aws_cli
+$ npm install github:umm/aws_cli
 ```
 
 ## Usage
