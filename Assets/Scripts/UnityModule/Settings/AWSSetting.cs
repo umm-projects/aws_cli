@@ -29,6 +29,31 @@ namespace UnityModule.Settings
         /// </summary>
         public string PathToCommand => pathToCommand;
 
+        /// <summary>
+        /// デフォルトの aws プロフィール名
+        /// </summary>
+        private const string DefaultAWSProfile = "default";
+
+        /// <summary>
+        /// aws プロフィール名を設定している環境変数のキー
+        /// c.f. https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-multiple-profiles.html
+        /// </summary>
+        private const string EnvironmentKeyAWSProfile = "AWS_PROFILE";
+
+        /// <summary>
+        /// aws プロフィール名の実態
+        /// </summary>
+        [SerializeField] private string awsProfile = (
+            !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(EnvironmentKeyAWSProfile))
+                ? Environment.GetEnvironmentVariable(EnvironmentKeyAWSProfile)
+                : DefaultAWSProfile
+        );
+
+        /// <summary>
+        /// aws プロフィール名
+        /// </summary>
+        public string AWSProfile => awsProfile;
+
 #if UNITY_EDITOR
         [UnityEditor.MenuItem("Assets/Create/Settings/AWS Setting")]
         public static void CreateSettingAsset()
